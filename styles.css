@@ -1,0 +1,259 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f3f4f6;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+}
+
+#app {
+    width: 100%;
+    max-width: 1200px;
+}
+
+.animated-form {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.animated-page {
+    animation: slideIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.hidden {
+    display: none !important;
+}
+
+.card {
+    background-color: white;
+    padding: 2.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #4f46e5;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #4338ca;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.candidate-card {
+    background-color: #f9fafb;
+    border: 2px solid transparent;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.candidate-card:hover {
+    background-color: #eff6ff;
+    transform: translateY(-5px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.candidate-card input:checked+div {
+    color: #4f46e5;
+}
+
+.candidate-card input:checked {
+    border-color: #4f46e5;
+}
+
+.candidate-card.selected {
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px #c7d2fe;
+    background-color: #eff6ff;
+}
+
+.page-title {
+    color: #1f2937;
+    font-weight: 700;
+}
+
+.vote-message {
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease-in-out;
+}
+
+.vote-success {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+.vote-error {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+/* Navbar & Sidebar styles */
+.navbar {
+    background-color: #4f46e5;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    border-radius: 0.75rem;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.navbar .logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.navbar nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.navbar nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.navbar nav a:hover,
+.navbar nav a.active {
+    background-color: #6366f1;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+
+.voter-status-dot {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+#menu-toggle,
+#admin-menu-toggle {
+    display: none;
+}
+
+.results-container {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.chart-container,
+#results-table {
+    width: 100%;
+}
+
+#results-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#results-table th,
+#results-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+    text-align: left;
+}
+
+#results-table th {
+    font-weight: 700;
+    background-color: #f3f4f6;
+}
+
+#results-table tr:last-child td {
+    border-bottom: none;
+}
+
+#results-table {
+    border-radius: 0.75rem;
+    overflow: hidden;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .navbar nav {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: #4f46e5;
+        width: 35%;
+        z-index: 10;
+        padding: 5px;
+        border-radius: 1rem;
+    }
+
+    .navbar nav.open {
+        display: flex;
+    }
+
+    .navbar nav a {
+        padding: 0.25rem 0.5rem;
+    }
+
+    #menu-toggle,
+    #admin-menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+}
